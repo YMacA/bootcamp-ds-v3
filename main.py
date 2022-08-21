@@ -81,7 +81,7 @@ df_discrepancy[df_discrepancy["Diff"].isnull()]
 code2 = '''
 df_discrepancy[df_discrepancy["Diff"].isnull()]
 '''
-st.code(code2, language=python)
+st.code(code2, language='python')
 
 
 
