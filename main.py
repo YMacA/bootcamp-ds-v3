@@ -71,7 +71,7 @@ df_discrepancy.groupby("Retail_Product_Level1Name").sum()
 
 st.dataframe(df_discrepancy.describe())
 
-st.write(df_discrepancy.shape())
+#st.write(df_discrepancy.shape())
 
 df_discrepancy[df_discrepancy["Diff"].isnull()]
 
