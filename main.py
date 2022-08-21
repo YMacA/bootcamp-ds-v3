@@ -73,11 +73,13 @@ st.dataframe(df_discrepancy.describe())
 
 #st.write(df_discrepancy.shape())
 
+code = '''def hello():
+     print("Hello, Streamlit!")'''
+st.code(code, language='python')
+
 df_discrepancy[df_discrepancy["Diff"].isnull()]
 
 st.code("df_discrepancy[df_discrepancy['Diff'].isnull()]", language=python)
 
-code = '''def hello():
-     print("Hello, Streamlit!")'''
-st.code(code, language='python')
+
 
