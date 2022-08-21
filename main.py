@@ -53,7 +53,7 @@ df_discrepancy["Retail_CCQTY"] = df_discrepancy["Retail_CCQTY"].astype(int)
 
 st.dataframe(df_discrepancy.head())
 
-st.write(df_discrepancy.dtypes)
+st.write(df_discrepancy.dtypes())
 
 df_discrepancy["Retail_SOHQTY"] = df_discrepancy["Retail_SOHQTY"].fillna(0).astype(int)
 
@@ -71,7 +71,7 @@ df_discrepancy.groupby("Retail_Product_Level1Name").sum()
 
 st.dataframe(df_discrepancy.describe())
 
-st.write(df_discrepancy.shape)
+st.write(df_discrepancy.shape())
 
 df_discrepancy[df_discrepancy["Diff"].isnull()]
 
