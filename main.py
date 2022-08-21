@@ -78,10 +78,10 @@ code = '''def hello():
 st.code(code, language='python')
 
 df_discrepancy[df_discrepancy["Diff"].isnull()]
-code = '''
+code2 = '''
 df_discrepancy[df_discrepancy["Diff"].isnull()]
 '''
-st.code(code, language=python)
+st.code(code2, language=python)
 
 
 
