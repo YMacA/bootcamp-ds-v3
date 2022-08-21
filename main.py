@@ -75,3 +75,9 @@ st.dataframe(df_discrepancy.describe())
 
 df_discrepancy[df_discrepancy["Diff"].isnull()]
 
+st.code(df_discrepancy[df_discrepancy["Diff"].isnull()])
+
+code = '''def hello():
+     print("Hello, Streamlit!")'''
+st.code(code, language='python')
+
