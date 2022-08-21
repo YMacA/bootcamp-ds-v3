@@ -79,17 +79,52 @@ my_cols_selected = ["Retail_Product_Color",
 '''
 st.code(code, language='python')
 
+code = '''
 df_A = df_expected[my_cols_selected]
+'''
+st.code(code, language='python')
+
+df_A = df_expected[my_cols_selected]
+
+code = '''
+df_A.head().T
+'''
+st.code(code, language='python')
 
 st.dataframe(df_A.head().T)
 
+
+
 df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
+
+code = '''
+df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
+'''
+st.code(code, language='python')
+
+code = '''
+df_discrepancy.head()
+'''
+st.code(code, language='python')
 
 st.dataframe(df_discrepancy.head())
 
 df_discrepancy['Retail_CCQTY'] = df_discrepancy['Retail_CCQTY'].fillna(0)
 
 df_discrepancy["Retail_CCQTY"] = df_discrepancy["Retail_CCQTY"].astype(int)
+
+code = '''
+df_discrepancy['Retail_CCQTY'] = df_discrepancy['Retail_CCQTY'].fillna(0)
+
+df_discrepancy["Retail_CCQTY"] = df_discrepancy["Retail_CCQTY"].astype(int)
+
+'''
+st.code(code, language='python')
+
+code = '''
+df_discrepancy.head()
+'''
+st.code(code, language='python')
 
 st.dataframe(df_discrepancy.head())
 
@@ -99,18 +134,49 @@ df_discrepancy["Retail_SOHQTY"] = df_discrepancy["Retail_SOHQTY"].fillna(0).asty
 
 df_discrepancy["Diff"] = df_discrepancy["Retail_CCQTY"] - df_discrepancy["Retail_SOHQTY"]
 
+code = '''
+df_discrepancy["Retail_SOHQTY"] = df_discrepancy["Retail_SOHQTY"].fillna(0).astype(int)
+
+df_discrepancy["Diff"] = df_discrepancy["Retail_CCQTY"] - df_discrepancy["Retail_SOHQTY"]
+
+'''
+st.code(code, language='python')
+
+code = '''
+df_discrepancy.head()
+'''
+st.code(code, language='python')
+
 st.dataframe(df_discrepancy.head())
+
+code = '''
+df_discrepancy.loc[df_discrepancy["Diff"]<0, "Unders"] = df_discrepancy["Diff"] * (-1)
+df_discrepancy["Unders"] = df_discrepancy["Unders"].fillna(0).astype(int)
+'''
+st.code(code, language='python')
 
 df_discrepancy.loc[df_discrepancy["Diff"]<0, "Unders"] = df_discrepancy["Diff"] * (-1)
 
-
 df_discrepancy["Unders"] = df_discrepancy["Unders"].fillna(0).astype(int)
 
+code = '''
+df_discrepancy.sample(10)
+'''
+st.code(code, language='python')
 
 st.dataframe(df_discrepancy.sample(10))
 
+code = '''
+df_discrepancy.groupby("Retail_Product_Level1Name").sum()
+'''
+st.code(code, language='python')
+
 st.dataframe(df_discrepancy.groupby("Retail_Product_Level1Name").sum())
 
+code = '''
+df_discrepancy.describe()
+'''
+st.code(code, language='python')
 st.dataframe(df_discrepancy.describe())
 
 #st.write(df_discrepancy.shape())
