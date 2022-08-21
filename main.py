@@ -53,7 +53,7 @@ df_discrepancy["Retail_CCQTY"] = df_discrepancy["Retail_CCQTY"].astype(int)
 
 st.dataframe(df_discrepancy.head())
 
-st.write(df_discrepancy.dtypes())
+#st.write(df_discrepancy.dtypes())
 
 df_discrepancy["Retail_SOHQTY"] = df_discrepancy["Retail_SOHQTY"].fillna(0).astype(int)
 
