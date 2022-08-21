@@ -67,7 +67,7 @@ df_discrepancy["Unders"] = df_discrepancy["Unders"].fillna(0).astype(int)
 
 st.dataframe(df_discrepancy.sample(10))
 
-df_discrepancy.groupby("Retail_Product_Level1Name").sum()
+st.dataframe(df_discrepancy.groupby("Retail_Product_Level1Name").sum())
 
 st.dataframe(df_discrepancy.describe())
 
